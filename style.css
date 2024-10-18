@@ -12,7 +12,7 @@ nav {
     position: sticky;
     top: 0;
     width: 100%;
-    background: linear-gradient(140deg, #ffffff, #c9da14);
+    background: linear-gradient(140deg, #05d7da, #e8e9e3);
     color: #000;
     padding: 10px 20px;
     display: flex;
@@ -21,71 +21,82 @@ nav {
     z-index: 100000;
   }
 
-  /* Logo and company name on the left */
   .navbar-left {
     display: flex;
     align-items: center;
   }
-
+  
   .navbar-left img {
-    width: 50px;
-    height: 50px;
+    height: 40px;
     margin-right: 10px;
+    color: #000000;
   }
-
+  
   .navbar-left h1 {
-    font-size: 24px;
-    font-weight: 600;
+    color: rgb(8, 6, 6);
+    font-size: 28px;
   }
-
-  /* Menu items and search button on the right */
+  
   .navbar-right {
     display: flex;
     align-items: center;
   }
-
-  .navbar-right ul {
-    list-style: none;
+  
+  .nav-links {
     display: flex;
-    gap: 20px;
+    list-style: none;
   }
-
-  .navbar-right ul li {
-    display: inline-block;
+  
+  .nav-links li {
+    margin: 0 15px;
   }
-
-  .navbar-right ul li a {
-    color: #000000;
+  
+  .nav-links li a {
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 5px;
-    margin: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 3px;
+  }
+
+  .nav-links li a:hover{
+    background-color: black;
+    color: #f2f2ef;
     border-radius: 5px;
   }
-
-  .navbar-right ul li a:hover {
-    color: #f0a500;
-    background-color:#000;
+  
+  /* Menu toggle button (hidden on desktop) */
+  .menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
   }
-
-  /* Search button */
-  .search-box {
-    margin-left: 20px;
+  
+  /* Responsive Styles for Mobile */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px; /* Place menu just below the navbar */
+      right: 0;
+      width: 100%;
+      background-color: #333;
+      text-align: center;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  
+    .menu-toggle {
+      display: block; /* Show the menu button on mobile */
+    }
   }
-
-  .search-box input {
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: rgb(59, 52, 52);
-  }
-
-  .search-box input::placeholder {
-    color: #ffffff;
+  
+  /* Show the nav-links on mobile when the toggle button is clicked */
+  .nav-links.active {
+    display: flex;
   }
 
 
@@ -163,6 +174,7 @@ nav {
 .category-grid {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .category-card {
